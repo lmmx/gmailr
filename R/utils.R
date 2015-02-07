@@ -33,8 +33,7 @@ not_null = function(x){ Filter(Negate(is.null), x) }
 
 gmail_path = function(user, ...) { paste("https://www.googleapis.com/gmail/v1/users", user, ..., sep="/") }
 gmail_upload_path = function(user, ...) { paste("https://www.googleapis.com/upload/gmail/v1/users", user, ..., sep="/") }
-rawToChar(base64decode(gsub("_", "/", gsub("-", "+", mymessage))))
-base64url_decode_to_char = function(x) { rawToChar(base64decode(x)) }
+base64url_decode_to_char = function(x) { rawToChar(base64url_decode(x)) }
 base64url_decode = function(x) { base64decode(gsub("_", "/", gsub("-", "+", x))) }
 base64url_encode = function(x) { gsub("/", "_", gsub("\\+", "-", base64encode(charToRaw(x)))) }
 
